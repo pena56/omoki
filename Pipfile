@@ -11,6 +11,7 @@ gunicorn = "*"
 django-heroku = "*"
 whitenoise = "*"
 dj-database-url = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
