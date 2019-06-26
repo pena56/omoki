@@ -27,7 +27,7 @@ SECRET_KEY = '5%(5eex2u=a+axpa1*%x+y62ihjhzxwzp*ij_*m3o-zk9!prhp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['omoki.herokuapp.com']
 
 
 # Application definition
