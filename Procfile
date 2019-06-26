@@ -1,1 +1,1 @@
-web: gunicorn omoki.wsgi
+web: gunicorn omoki.wsgi --log-file -
