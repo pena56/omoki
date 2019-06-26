@@ -16,6 +16,8 @@ import django_heroku
 
 import dj_database_url
 
+import cloudinary
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -43,7 +45,8 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
     'home',
-    'event',
+    'category',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -140,5 +143,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+cloudinary.config(
+    cloud_name = 'dpekd69lp',
+    api_key = '889197881362592',
+    api_secret = 'Wmx0tmnWl6rNCIjX7MwFbfA23Ds'
+)
 
 django_heroku.settings(locals())

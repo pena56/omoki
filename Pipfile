@@ -12,6 +12,7 @@ django-heroku = "*"
 whitenoise = "*"
 dj-database-url = "*"
 pillow = "*"
+cloudinary = "*"
 
 [requires]
 python_version = "3.7"
