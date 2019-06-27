@@ -7,6 +7,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Cinzel|Permanent+Marker|Righteous&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Bootstrap core CSS -->
@@ -21,7 +24,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark secondary-color lighten-4">
         <div></div>
-        <a class="navbar-brand" href="">Omoki Event <br> Planning</a>
+        <a id="brand-font" class="navbar-brand h2-responsive" href="">Omoki Events</a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navLinks"
             aria-controls="navLinks" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,28 +34,30 @@
         <div class="collapse navbar-collapse" id="navLinks">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">Home
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Home
                     </a>
                 </li>
                 <li class="nav-item dropdown secondary-color">
-                    <a class="nav-link mx-2" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">Services</a>
-                    <div id="navbar-background-color" class="dropdown-menu dropdown-primary" aria-labelledby="categoryDropdown">
+                    <a class="nav-link mx-2 h5-responsive" id="categoryDropdown" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false"> <span id="brand-font"> Services</span></a>
+                    <div id="navbar-background-color" class="dropdown-menu dropdown-primary"
+                        aria-labelledby="categoryDropdown">
                         {% for service in services %}
-                        <a class="dropdown-item" href="#">{{service}}</a>
+                        <a id="service-writeup" class="dropdown-item" href="#"> <span
+                                id="brand-font">{{service}}</span></a>
                         {% endfor %}
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">Gallery
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Gallery
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">Our Team
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Our Team
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2" href="#">Contact Us
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Contact Us
                     </a>
                 </li>
             </ul>
@@ -66,9 +71,9 @@
             {% for category in categories %}
             <div class="col-md-4 mt-2 mb-2">
                 <div class="view overlay zoom ">
-                    <img src="{{category.image.url}}" class="img-fluid" alt="placeholder">
+                    <img src="{{category.image.url}}" class="img-fluid z-depth-4 rounded" alt="placeholder">
                     <div class="mask flex-center waves-effect waves-light rgba-purple-light">
-                        <p class="white-text h5">{{category.name}}</p>
+                        <p id="header-font" class="white-text h5">{{category.name}}</p>
                     </div>
                 </div>
             </div>
@@ -78,8 +83,9 @@
         <hr>
         <div class="row mt-4">
             <div class="col">
-                <p class="text-center h2-responsive">Welcome to Omoki</p>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur eligendi ab
+                <p id="header-font" class="text-center h2-responsive">Welcome to Omoki</p>
+                <p id="writeup-font" class="text-center h5-responsive">Lorem ipsum dolor sit amet consectetur
+                    adipisicing elit. Consequatur eligendi ab
                     porro assumenda, consectetur sapiente consequuntur vitae. Soluta sapiente repellendus consequuntur,
                     impedit sint dolorum cum illum eveniet a sed culpa? Lorem ipsum dolor sit amet, consectetur
                     adipisicing elit. Voluptates, iure dolor commodi rem temporibus quam, ullam iste odit eligendi
@@ -97,18 +103,143 @@
         </div>
         <hr>
 
+        <div class="row mt-2 mb-5 d-flex justify-content-center">
+            <p id="header-font" class="text-center h2-responsive">{{featured_event.event_title}}</p>
+            <div class="col-md-10 w-100">
+                <!--Carousel Wrapper-->
+                <div id="carousel-example-1z" class="carousel slide carousel-fade" data-ride="carousel">
+                    <!--Indicators-->
+                    <ol class="carousel-indicators">
+                        <li data-target="#carousel-example-1z" data-slide-to="0" class="active"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="1"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="2"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="3"></li>
+                        <li data-target="#carousel-example-1z" data-slide-to="4"></li>
+                    </ol>
 
-        <!-- JQuery -->
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <!-- Bootstrap tooltips -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-        <!-- Bootstrap core JavaScript -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <!-- MDB core JavaScript -->
-        <script type="text/javascript"
-            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active">
+                            <img class="d-block img-fluid" src="{{featured_event.cover_image.url}}" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="{{featured_event.image_1.url}}" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="{{featured_event.image_2.url}}" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="{{featured_event.image_3.url}}" alt="Third slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block img-fluid" src="{{featured_event.image_4.url}}" alt="Third slide">
+                        </div>
+                    </div>
+
+                    <a class="carousel-control-prev" href="#carousel-example-1z" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carousel-example-1z" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="row mt-2 mb-5 d-flex justify-content-center">
+            <p id="header-font" class="text-center h2-responsive">Testimonies</p>
+            <div class="row">
+                <div class="card col-md-4 px-3">
+                    <div class="card-body">
+                        <p class="card-text font-weight-bold" id="writeup-font">This is a longer card with supporting
+                            text
+                            below as a natural
+                            lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text font-weight-bold" id="writeup-font"><small class="text-muted">Last updated 3
+                                mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card col-md-4 px-3">
+                    <div class="card-body">
+                        <p class="card-text font-weight-bold" id="writeup-font">This is a longer card with supporting
+                            text
+                            below as a natural
+                            lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text font-weight-bold" id="writeup-font"><small class="text-muted">Last updated 3
+                                mins ago</small></p>
+                    </div>
+                </div>
+                <div class="card col-md-4 px-3">
+                    <div class="card-body">
+                        <p class="card-text font-weight-bold" id="writeup-font">This is a longer card with supporting
+                            text
+                            below as a natural
+                            lead-in to additional content. This content is a little bit longer.</p>
+                        <p class="card-text font-weight-bold" id="writeup-font"><small class="text-muted">Last updated 3
+                                mins ago</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <footer class="page-footer font-small secondary-color darken-3">
+
+        <!-- Footer Elements -->
+        <div class="container">
+
+            <!-- Grid row-->
+            <div class="row">
+
+                <!-- Grid column -->
+                <div class="col-md-12 py-5">
+                    <div class="mb-5 flex-center">
+
+                        <!-- Facebook -->
+                        <a class="fb-ic">
+                            <i class="fab fa-facebook-f fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!-- Twitter -->
+                        <a class="tw-ic">
+                            <i class="fab fa-twitter fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                        <!--Instagram-->
+                        <a class="ins-ic">
+                            <i class="fab fa-instagram fa-lg white-text mr-md-5 mr-3 fa-2x"> </i>
+                        </a>
+                    </div>
+                </div>
+                <!-- Grid column -->
+
+            </div>
+            <!-- Grid row-->
+
+        </div>
+        <!-- Footer Elements -->
+
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2019 Copyright:
+            <a href=""> Omoki.org</a>
+        </div>
+        <!-- Copyright -->
+
+    </footer>
+
+
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.3/js/mdb.min.js"></script>
 </body>
 
 </html>
