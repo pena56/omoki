@@ -8,9 +8,12 @@ class HomePageView(TemplateView):
     template_name = 'index.html'
 
 def home_page_view(request):
-    categories = Category.objects.all()
+    services = Category.objects.all()
+
+    categories = Category.objects.all()[:3]
 
     context = {
+        'services': services,
         'categories': categories,
     }
 
