@@ -30,9 +30,14 @@
                     <a class="nav-link" href="#">Home
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services
-                    </a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link" id="categoryDropdown" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">Services</a>
+                    <div class="dropdown-menu dropdown-primary" aria-labelledby="categoryDropdown">
+                        {% for category in categories %}
+                        <a class="dropdown-item" href="#">{{category.name}}</a>
+                        {% endfor %}
+                    </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Gallery
@@ -53,7 +58,19 @@
 
 
     <div class="container">
-        <h1>This is the Home Page</h1>
+        <div class="row mt-5 mb-4">
+            {% for category in categories %}
+            <div class="col-md-4">
+                <div class="view overlay zoom ">
+                    <img src="{{category.image.url}}" class="img-fluid"
+                        alt="placeholder">
+                    <div class="mask flex-center waves-effect waves-light rgba-purple-light">
+                        <p class="white-text h5">{{category.name}}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 
 
