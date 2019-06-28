@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'home',
     'category',
     'events',
+    'package',
+    'team',
     'cloudinary',
 ]
 

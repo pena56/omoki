@@ -3,6 +3,7 @@ from cloudinary.models import CloudinaryField
 from django.db.models.signals import pre_delete
 from django.dispatch import receiver
 import cloudinary
+from django.urls import reverse
 
 from category.models import Category
 
@@ -27,6 +28,9 @@ class Event(models.Model):
 
     def __str__(self):
         return self.event_title
+
+    def get_absolute_url(self):
+        return reverse('event_detail', args=[str(self.id)])
 
 
 @receiver(pre_delete, sender=Event)

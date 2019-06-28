@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Our Team
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-3 mb-2">
+    <p id="header-font" class="text-center h2-responsive">Our Team</p>
+    <p id="writeup-font" class="text-center h5-responsive">Lorem ipsum dolor sit amet consectetur
+        adipisicing elit. Consequatur eligendi ab
+        porro assumenda, consectetur sapiente consequuntur vitae. Soluta sapiente repellendus consequuntur,
+        impedit sint doloruor commodi rem temporibus quam, ullam iste odit eligendi
+        officiis sapiente quaerat fugiat a necessitatibus repellendus</p>
+</div>
+
+<div class="row justify-content-center mt-3 mb-3">
+    {% for member in team %}
+    <div class="col-md-6 mb-1 mt-1">
+        <div class="card card-cascade">
+            <div class="view view-cascade overlay">
+                <img class="card-img-top" src="{{member.profile_image.url}}" alt="Card image cap">
+                <a>
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body card-body-cascade text-center">
+                <h4 class="card-title"><strong id="header-font">{{member.name}}</strong></h4>
+                <p class="card-text" id="writeup-font">{{member.about}}</p>
+                <!-- <a type="button" class="btn-floating btn-small btn-fb"><i class="fab fa-facebook-f"></i></a>
+                    <a type="button" class="btn-floating btn-small btn-tw"><i class="fab fa-twitter"></i></a>
+                    <a type="button" class="btn-floating btn-small btn-dribbble"><i class="fab fa-dribbble"></i></a> -->
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

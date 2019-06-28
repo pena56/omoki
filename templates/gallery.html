@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Gallery
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center mt-3">
+    <p id="header-font" class="text-center h2-responsive">Gallery</p>
+</div>
+<hr>
+<div class="row mt-3 mb-4">
+    {% for event in events %}
+    <div class="col-md-6 mt-2 mb-2">
+        <a href="{{event.get_absolute_url}}">
+            <div class="view overlay zoom ">
+                <img src="{{event.cover_image.url}}" class="img-fluid z-depth-4 rounded" alt="placeholder">
+                <div class="mask flex-center waves-effect waves-light rgba-purple-light">
+                    <p id="header-font" class="white-text h5">{{event.event_title}}</p>
+                </div>
+            </div>
+        </a>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

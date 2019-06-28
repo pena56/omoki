@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{category.name}}
+{% endblock %}
+
+{% block content %}
+<div class="row mt-5 mb-4">
+    <div class="col-md-6 mt-2 mb-2 px-1">
+        <div class="view">
+            <img src="{{category.image.url}}" class="img-fluid z-depth-4 rounded" alt="placeholder">
+            <div class="mask flex-center waves-effect waves-light">
+                <p id="header-font" class="black-text h5">{{category.name}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mt-2 mb-2 px-1">
+        <p id="header-font" class="text-center h3-responsive">Our Services</p>
+        <p id="writeup-font" class="text-center">Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Consequatur eligendi ab
+            porro assumenda, consectetur sapiente consequuntur vitae. Soluta sapiente repellendus consequuntur,
+            impedit sint dolorum cum illum eveniet a sed culpa? Lorem ipsum dolor sit amet, consectetur
+            re</p>
+        <div class="row justify-content-center mb-4">
+            <button id="writeup-font" class="btn btn-lg btn-outline-secondary">Request a consult</button>
+        </div>
+    </div>
+</div>
+<hr>
+
+<div class="row justify-content-center">
+    <p id="header-font" class="text-center h2-responsive">Our {{category.name}} Packages</p>
+</div>
+<div class="row mt-3 mb-4">
+    <div class="card-group">
+        {% for package in packages %}
+        <div id="card-background-color" class="card text-white mx-1">
+            <div class="card-body">
+                <h5 id="header-font" class="card-title text-center">{{package.title}}</h5>
+                <p id="writeup-font" class="card-text text-white text-center">{{package.description}}</p>
+                <ul>
+                    {% if package.highlight_1 %}
+                    <li id="header-font">{{package.highlight_1}}</li>
+                    {% endif %}
+                    {% if package.highlight_2 %}
+                    <li id="header-font">{{package.highlight_2}}</li>
+                    {% endif %}
+                    {% if package.highlight_3 %}
+                    <li id="header-font">{{package.highlight_3}}</li>
+                    {% endif %}
+                    {% if package.highlight_4 %}
+                    <li id="header-font">{{package.highlight_4}}</li>
+                    {% endif %}
+                    {% if package.highlight_5 %}
+                    <li id="header-font">{{package.highlight_5}}</li>
+                    {% endif %}
+                    {% if package.highlight_6 %}
+                    <li id="header-font">{{package.highlight_6}}</li>
+                    {% endif %}
+                    {% if package.highlight_7 %}
+                    <li id="header-font">{{package.highlight_7}}</li>
+                    {% endif %}
+                </ul>
+                <p id="header-font" class="card-text text-white float-right">starting at {{package.price}}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<hr>
+<div class="row justify-content-center">
+    <p id="header-font" class="text-center h2-responsive">{{category.name}} We've Organised</p>
+</div>
+
+<div class="row mt-3 mb-4">
+    {% for event in events %}
+    <div class="col-md-6 mt-2 mb-2">
+        <div class="view overlay zoom ">
+            <a href="{{event.get_absolute_url}}">
+            <img src="{{event.cover_image.url}}" class="img-fluid z-depth-4 rounded" alt="placeholder">
+            <div class="mask flex-center waves-effect waves-light rgba-purple-light">
+                <p id="header-font" class="white-text h5">{{event.event_title}}</p>
+            </div>
+        </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="row justify-content-center mb-4">
+    <a href="{% url 'gallery' %}" id="writeup-font" class="btn btn-lg btn-outline-secondary">View Our Gallery</a>
+</div>
+{% endblock %}

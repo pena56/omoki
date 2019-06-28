@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark secondary-color lighten-4">
+    <nav id="primary-background-color" class="navbar navbar-expand-lg navbar-dark">
         <div></div>
         <a id="brand-font" class="navbar-brand h2-responsive" href="{% url 'home' %}">Omoki Event Planning</a>
 
@@ -37,23 +37,23 @@
                     <a id="brand-font" class="nav-link mx-2 h5-responsive" href="{% url 'home' %}">Home
                     </a>
                 </li>
-                <li class="nav-item dropdown secondary-color">
+                <li class="nav-item dropdown">
                     <a class="nav-link mx-2 h5-responsive" id="categoryDropdown" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false"> <span id="brand-font"> Services</span></a>
                     <div id="navbar-background-color" class="dropdown-menu dropdown-primary"
                         aria-labelledby="categoryDropdown">
                         {% for service in services %}
-                        <a id="service-writeup" class="dropdown-item" href="#"> <span
+                        <a id="service-writeup" class="dropdown-item" href="{{service.get_absolute_url}}"> <span
                                 id="brand-font">{{service}}</span></a>
                         {% endfor %}
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Gallery
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="{% url 'gallery' %}">Gallery
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="#">Our Team
+                    <a id="brand-font" class="nav-link mx-2 h5-responsive" href="{% url 'team' %}">Our Team
                     </a>
                 </li>
                 <li class="nav-item">
@@ -72,7 +72,7 @@
     </div>
 
 
-    <footer class="page-footer font-small secondary-color darken-3">
+    <footer id="primary-background-color" class="page-footer font-small">
 
         <!-- Footer Elements -->
         <div class="container">
