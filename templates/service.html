@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+{% block content %}
+<div class="row mt-4">
+    <div class="col">
+        <p id="header-font" class="text-center h1-responsive">Our Services</p>
+        <hr>
+        <p id="writeup-font" class="text-center h5-responsive">Lorem ipsum dolor sit amet consectetur
+            adipisicing elit. Consequatur eligendi ab
+            porro assumenda, consectetur sapiente consequuntur vitae. Soluta sapiente repellendus consequuntur,
+            sam inventore
+            perspiciatis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum, quaerat. Sint esse,
+            magnam sapiente inventore laudantium dolore impedit veritatis modi aperiam, harum vitae quibusdam
+            quod odio in, nemo soluta eligendi. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Amet,
+            perspiciatis saepe voluptate nemo blanditiis quam! In, neque explicabo temporibus tenetur expedita
+            earum quisquam corporis nihil, atque placeat doloremque odio. Iusto.</p>
+    </div>
+</div>
+
+<div class="row justify-content-center mb-4">
+    <button id="writeup-font" class="btn btn-lg btn-outline-secondary">Request a consult</button>
+</div>
+<hr>
+
+<div class="row justify-content-center">
+    <p id="header-font" class="text-center h3-responsive">Select A Category</p>
+</div>
+<div class="row justify-content-center mb-4">
+
+    {% for service in services %}
+    <div class="col-md-4 px-2 mb-2 mt-2">
+        <div class="card card-cascade wider">
+
+            <!-- Card image -->
+            <div class="view view-cascade overlay">
+                <img class="card-img-top" src="{{service.image.url}}" alt="{{service.name}}">
+                <a href="#!">
+                    <div class="mask rgba-white-slight"></div>
+                </a>
+            </div>
+            <div class="card-body card-body-cascade text-center pb-0">
+                <!-- Title -->
+                <a id="writeup-font" class="card-title"><strong>{{service.name}}</strong></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}

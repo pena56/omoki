@@ -22,3 +22,11 @@ def home_page_view(request):
     }
 
     return render(request, 'index.html', context)
+
+def service_page_view(request):
+    services = Category.objects.all()
+
+    context = {
+        'services': services,
+    }
+    return render(request, 'service.html', context)
