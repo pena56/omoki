@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'events',
     'package',
     'team',
+    'contact',
     'cloudinary',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -134,6 +136,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 cloudinary.config(
     cloud_name = 'dpekd69lp',

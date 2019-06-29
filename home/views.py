@@ -1,15 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse
 
 from category.models import Category
 from events.models import Event
 from package.models import Package
 from team.models import Team
+from contact.forms import ContactForm
 
 # Create your views here.
-class HomePageView(TemplateView):
-    template_name = 'index.html'
-
 def home_page_view(request):
     services = Category.objects.all()
 
@@ -85,3 +85,44 @@ def team_view(request):
     }
 
     return render(request, 'team.html', context)
+
+def contact_view(request):
+    services = Category.objects.all()
+
+    if request.method == 'GET':
+        form = ContactForm()
+    else:
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            subject = form.cleaned_data['subject']
+            from_email = form.cleaned_data['your_email']
+            message = form.cleaned_data['your_message']
+            try:
+                send_mail(subject, message, from_email, ['omoki@example.com'])
+            except BadHeaderError:
+                return HttpResponse('Bad Header')
+            return redirect('success')
+
+    context = {
+        'services': services,
+        'form': form,
+    }
+
+    return render(request, 'contact.html', context)
+
+
+def contact_success_view(request):
+    services = Category.objects.all()
+
+    events = Event.objects.all().order_by('-id')[:3]
+
+    context = {
+        'services': services,
+        'events': events,
+    }
+    return render(request, 'success.html', context)
+
+
+
+
+
